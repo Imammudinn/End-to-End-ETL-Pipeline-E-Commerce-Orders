@@ -5,7 +5,7 @@
 ![Airflow](https://img.shields.io/badge/Apache_Airflow-2.10-017CEE?logo=apacheairflow&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 
-Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Membersihkan data kotor dari berbagai channel penjualan, memvalidasi kualitas data, dan menghasilkan summary report — diorkestrasi menggunakan Apache Airflow.
+Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Membersihkan data kotor dari berbagai channel penjualan, memvalidasi kualitas data, dan menghasilkan summary report diorkestrasi menggunakan Apache Airflow.
 
 ---
 
@@ -153,7 +153,7 @@ start >> extract >> transform >> validate >> load >> report >> end
 
 ## 📄 Documentation
 
-- [ETL Design Document](etl_design.md) — Penjelasan lengkap arsitektur dan keputusan desain
+- [ETL Design Document](etl_design.md) Penjelasan lengkap arsitektur dan keputusan desain
 ---
 
 ## 👤 Author
