@@ -5,7 +5,7 @@
 ![Airflow](https://img.shields.io/badge/Apache_Airflow-2.10-017CEE?logo=apacheairflow&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 
-Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Membersihkan data kotor dari berbagai channel penjualan, memvalidasi kualitas data, dan menghasilkan summary report diorkestrasi menggunakan Apache Airflow.
+Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Membersihkan data kotor dari berbagai channel penjualan, memvalidasi kualitas data, dan menghasilkan summary report — diorkestrasi menggunakan Apache Airflow.
 
 ---
 
@@ -13,34 +13,11 @@ Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Member
 
 ```mermaid
 flowchart LR
-    subgraph Extract
-        A[("📄 raw_orders.csv\n130 baris")]
-    end
+    A[CSV Extract] --> B[Clean Transform] --> C{Gate Validate}
+    C -->|Lolos| D[Load] --> E[Report]
+    C -->|Gagal?| F[STOP!]
 
-    subgraph Transform
-        B["🧹 Clean Data\n- Hapus duplikat\n- Hapus harga negatif\n- Isi missing values\n- Standarkan format"]
-    end
-
-    subgraph Validate
-        C{"✅ Quality Gate\n4 checks harus PASS"}
-    end
-
-    subgraph Load
-        D[("📄 orders_clean.csv\n110 baris")]
-        E[("📊 summary_report.csv")]
-    end
-
-    subgraph Orchestrate
-        F["⏰ Apache Airflow\nDaily @ 06:00"]
-    end
-
-    A --> B --> C
-    C -->|PASS| D
-    C -->|FAIL| G["❌ Pipeline Stop"]
-    D --> E
-    F -.->|schedule| A
-
-    style G fill:#ff4444,color:#fff
+    style F fill:#ff4444,color:#fff
     style C fill:#ffaa00,color:#000
 ```
 
@@ -62,25 +39,6 @@ Pipeline ini menyelesaikan semua masalah di atas secara **otomatis dan terjadwal
 
 ---
 
-## 📁 Project Structure
-
-```
-ProjectDE/
-├── 📄 etl_pipeline.py          # Script ETL standalone (bisa dijalankan langsung)
-├── 📄 orchestrator.py           # Mini orchestrator dengan retry + logging
-├── 📂 dags/
-│   └── 📄 etl_ecommerce_dag.py # Airflow DAG definition
-├── 📂 data/
-│   ├── 📄 raw_orders.csv        # Data mentah (input)
-│   └── 📄 raw_products.csv      # Master data produk
-├── 📄 orders_clean.csv          # Output: data bersih (110 baris)
-├── 📄 summary_report.csv        # Output: summary per kategori
-├── 📄 pipeline_log.txt          # Log eksekusi pipeline
-├── 📄 etl_design.md             # Dokumen desain ETL
-├── 📄 docker-compose.yaml       # Docker config untuk Airflow
-└── 📄 README.md                 # File ini
-```
-
 ---
 
 ## 🚀 Quick Start
@@ -88,9 +46,6 @@ ProjectDE/
 ### Option 1: Jalankan Script Langsung (Tanpa Airflow)
 
 ```bash
-# Clone repository
-git clone https://github.com/Imammudinn/ProjectDE.git
-cd ProjectDE
 
 # Install dependencies
 pip install pandas numpy
@@ -131,11 +86,12 @@ Membaca `raw_orders.csv` (130 baris, 11 kolom) dari sumber data.
 | 6 | Feature engineering | Tambah kolom `bulan` dan `kategori_harga` |
 
 ### Step 3: Validate (Quality Gate)
-4 checks harus PASS sebelum data di-load:
+5 checks harus PASS sebelum data di-load:
 - ✅ Zero duplicates
 - ✅ Zero null values
 - ✅ Zero negative prices
 - ✅ Correct datetime type
+- ✅ Channel konsisten
 
 **Jika validation gagal → pipeline STOP. Data kotor tidak masuk warehouse.**
 
@@ -152,23 +108,6 @@ Output: `orders_clean.csv` (110 baris, 13 kolom) + `summary_report.csv`
 | Elektronik | 81 | 435,18 jt | 5,37 jt |
 | Furniture | 29 | 127,35 jt | 4,39 jt |
 | Total | 110 | 562,53 jt | - |
-
-
----
-
-## 📸 Project Screenshots
-
-### 1. Airflow DAG (Orchestration)
-<!-- Ganti baris di bawah ini dengan gambar aslimu (hilangkan tanda komen <!- - dan - ->) -->
-<!-- ![Airflow DAG Graph](assets/airflow_graph.png) -->
-
-### 2. Terminal Execution Log
-<!-- Ganti baris di bawah ini dengan gambar aslimu -->
-<!-- ![Execution Log](assets/execution_log.png) -->
-
-### 3. Data Sebelum & Sesudah (Data Quality)
-<!-- Ganti baris di bawah ini dengan gambar aslimu -->
-<!-- ![Data Quality](assets/data_quality.png) -->
 
 ---
 
@@ -215,12 +154,10 @@ start >> extract >> transform >> validate >> load >> report >> end
 ## 📄 Documentation
 
 - [ETL Design Document](etl_design.md) — Penjelasan lengkap arsitektur dan keputusan desain
-- [PPT Concept](ppt_concept.md) — Outline presentasi portfolio
-
 ---
 
 ## 👤 Author
 
 **Muhammad Imam Mudin Baadali**
-- Portfolio ini dibuat sebagai tugas final / project dari bootcamp **Dibimbing.id** untuk program Data Engineering.
+- Portfolio ini dibuat sebagai bagian dari pembelajaran Data Engineering
 - Tools: Python, Pandas, SQL, Apache Airflow (konsep)
