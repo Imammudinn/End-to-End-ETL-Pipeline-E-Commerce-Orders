@@ -13,9 +13,9 @@ Pipeline ETL end-to-end untuk memproses data transaksi e-commerce harian. Member
 
 ```mermaid
 flowchart LR
-    A[CSV Extract] --> B[Clean Transform] --> C{Gate Validate}
-    C -->|Lolos| D[Load] --> E[Report]
-    C -->|Gagal?| F[STOP!]
+    A["CSV Extract"] --> B["Clean Transform"] --> C{"Gate Validate"}
+    C -->|"Lolos"| D["Load"] --> E["Report"]
+    C -->|"Gagal?"| F["STOP!"]
 
     style F fill:#ff4444,color:#fff
     style C fill:#ffaa00,color:#000
