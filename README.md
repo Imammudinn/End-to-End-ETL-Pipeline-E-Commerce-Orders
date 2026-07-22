@@ -222,5 +222,5 @@ start >> extract >> transform >> validate >> load >> report >> end
 ## 👤 Author
 
 **Muhammad Imam Mudin Baadali**
-- Portfolio ini dibuat sebagai bagian dari pembelajaran Data Engineering
+- Portfolio ini dibuat sebagai tugas final / project dari bootcamp **Dibimbing.id** untuk program Data Engineering.
 - Tools: Python, Pandas, SQL, Apache Airflow (konsep)
