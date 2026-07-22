@@ -1,21 +1,21 @@
-[2026-07-21 09:18:49] [extract] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [extract] [INFO] Loaded 130 baris dari raw_orders.csv
-[2026-07-21 09:18:49] [extract] [SUCCESS] Selesai dalam 0.01s
-[2026-07-21 09:18:49] [transform] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [transform] [INFO] Hapus 10 duplikat
-[2026-07-21 09:18:49] [transform] [INFO] Hapus 5 harga negatif
-[2026-07-21 09:18:49] [transform] [INFO] Output: 110 baris bersih
-[2026-07-21 09:18:49] [transform] [SUCCESS] Selesai dalam 0.04s
-[2026-07-21 09:18:49] [validate] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [validate] [INFO] Semua 4 check PASSED ✅
-[2026-07-21 09:18:49] [validate] [SUCCESS] Selesai dalam 0.01s
-[2026-07-21 09:18:49] [load] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [load] [INFO] Data disimpan ke orders_clean.csv (110 baris)
-[2026-07-21 09:18:49] [load] [SUCCESS] Selesai dalam 0.01s
-[2026-07-21 09:18:49] [report] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [report] [INFO] Report disimpan ke summary_report.csv
-[2026-07-21 09:18:49] [report] [SUCCESS] Selesai dalam 0.02s
-[2026-07-21 09:18:49] [notify] [RUNNING] Attempt 1/3
-[2026-07-21 09:18:49] [notify] [INFO] Notifikasi terkirim
-[2026-07-21 09:18:49] [notify] [SUCCESS] Selesai dalam 0.0s
-[2026-07-21 09:18:49] [pipeline] [COMPLETED] Total waktu: 0.11s
+[2026-07-22 09:07:11] [extract] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [extract] [INFO] Loaded 130 baris dari raw_orders.csv
+[2026-07-22 09:07:11] [extract] [SUCCESS] Selesai dalam 0.01s
+[2026-07-22 09:07:11] [transform] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [transform] [INFO] Hapus 10 duplikat
+[2026-07-22 09:07:11] [transform] [INFO] Hapus 5 harga negatif
+[2026-07-22 09:07:11] [transform] [INFO] Output: 110 baris bersih
+[2026-07-22 09:07:11] [transform] [SUCCESS] Selesai dalam 0.05s
+[2026-07-22 09:07:11] [validate] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [validate] [INFO] Semua 4 check PASSED ✅
+[2026-07-22 09:07:11] [validate] [SUCCESS] Selesai dalam 0.01s
+[2026-07-22 09:07:11] [load] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [load] [INFO] Data disimpan ke orders_clean.csv (110 baris)
+[2026-07-22 09:07:11] [load] [SUCCESS] Selesai dalam 0.01s
+[2026-07-22 09:07:11] [report] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [report] [INFO] Report disimpan ke summary_report.csv
+[2026-07-22 09:07:11] [report] [SUCCESS] Selesai dalam 0.01s
+[2026-07-22 09:07:11] [notify] [RUNNING] Attempt 1/3
+[2026-07-22 09:07:11] [notify] [INFO] Notifikasi terkirim
+[2026-07-22 09:07:11] [notify] [SUCCESS] Selesai dalam 0.0s
+[2026-07-22 09:07:11] [pipeline] [COMPLETED] Total waktu: 0.1s

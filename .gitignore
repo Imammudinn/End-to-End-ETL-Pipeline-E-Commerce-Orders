@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+venv/
+.env
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Logs
+*.log
+# (Catatan: pipeline_log.txt sudah terlanjur di-commit sebelumnya, biarkan saja untuk portofolio)
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Airflow (jika nanti ter-generate saat menjalankan Docker)
+airflow.db
+logs/
+airflow-webserver.pid

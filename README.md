@@ -147,11 +147,28 @@ Output: `orders_clean.csv` (110 baris, 13 kolom) + `summary_report.csv`
 ## 📊 Sample Output
 
 ### Summary Report
-| Kategori | Total Orders | Total Revenue | Avg Revenue |
-|----------|-------------|---------------|-------------|
-| Besar (>2jt) | 49 | Rp 507.400.000 | Rp 10.355.102 |
-| Sedang (500rb-2jt) | 51 | Rp 51.570.000 | Rp 1.011.176 |
-| Kecil (<500rb) | 10 | Rp 3.560.000 | Rp 356.000 |
+| kategori | total_orders | total_revenue | avg_revenue |
+|----------|--------------|---------------|-------------|
+| Elektronik | 81 | 435,18 jt | 5,37 jt |
+| Furniture | 29 | 127,35 jt | 4,39 jt |
+| Total | 110 | 562,53 jt | - |
+
+
+---
+
+## 📸 Project Screenshots
+
+### 1. Airflow DAG (Orchestration)
+<!-- Ganti baris di bawah ini dengan gambar aslimu (hilangkan tanda komen <!- - dan - ->) -->
+<!-- ![Airflow DAG Graph](assets/airflow_graph.png) -->
+
+### 2. Terminal Execution Log
+<!-- Ganti baris di bawah ini dengan gambar aslimu -->
+<!-- ![Execution Log](assets/execution_log.png) -->
+
+### 3. Data Sebelum & Sesudah (Data Quality)
+<!-- Ganti baris di bawah ini dengan gambar aslimu -->
+<!-- ![Data Quality](assets/data_quality.png) -->
 
 ---
 
