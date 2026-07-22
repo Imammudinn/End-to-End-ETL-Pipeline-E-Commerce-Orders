@@ -118,7 +118,7 @@ Pipeline ini memproses data transaksi e-commerce harian dari berbagai channel pe
 | Elektronik | 81 | Rp 435.180.000 | Rp 5.372.593 |
 | Furniture | 29 | Rp 127.350.000 | Rp 4.391.379 |
 
-### Production Path
+### Production Path (Next Steps)
 Di environment production, output akan di-load ke:
 - **Google BigQuery** sebagai data warehouse utama
 - **PostgreSQL** sebagai operational database untuk dashboard
@@ -207,16 +207,12 @@ Data di-pass antar task menggunakan **file-based approach** (bukan XCom untuk da
 4. **Notification task** — Print summary dengan total orders dan revenue yang diproses
 
 ### Bagaimana Cara Tahu Data Berkualitas?
-1. **Validation gate** — 4 automated checks harus PASS sebelum data di-load:
+1. **Validation gate** — 5 automated checks harus PASS sebelum data di-load:
    - `zero_duplicates`: Tidak ada baris duplikat
    - `zero_nulls`: Tidak ada missing values
    - `zero_negative_price`: Tidak ada harga negatif
    - `datetime_type`: Kolom tanggal bertipe datetime (bukan string)
+   - `channel_consistent`: Channel konsisten
 2. **Row count monitoring** — Cek apakah jumlah baris output masuk akal (tidak terlalu sedikit/banyak)
 3. **Revenue sanity check** — Total revenue per run dalam range yang wajar
 
-### Production Monitoring (Next Steps)
-- **Slack/Email alerts** untuk pipeline failure
-- **Data quality dashboard** di Metabase/Grafana
-- **SLA monitoring** — alert jika pipeline tidak selesai sebelum jam 7 pagi
-- **Great Expectations** untuk comprehensive data quality testing
